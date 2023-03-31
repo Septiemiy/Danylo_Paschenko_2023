@@ -11,25 +11,28 @@
     new Person("Margaret", 11)
 };
 
+int[] numbers = new int[2];
+
 while (true)
 {
-    Console.Write("Entire initial age value: ");
-    int numberOne = int.Parse(Console.ReadLine());
-    if (numberOne < 0)
+    Console.WriteLine("Entire initial and final age value: ");
+    for (int i = 0; i <= 1; i++)
+    {
+        numbers[i] = int.Parse(Console.ReadLine());
+    }
+    
+    if (numbers[0] < 0)
     {
         Console.WriteLine("\nError: Initial age value is negative\n");
         continue;
     }
-
-    Console.Write("Entire final age value: ");
-    int numberTwo = int.Parse(Console.ReadLine());
-    if (numberTwo > 100)
+    else if (numbers[1] > 100)
     {
         Console.WriteLine("\nError: Final age value is greater than 100\n");
         continue;
     }
 
-    var findAgeBetweenNumbers = from x in people where x.Age >= numberOne && x.Age <= numberTwo select x;
+    var findAgeBetweenNumbers = from x in people where x.Age >= numbers[0] && x.Age <= numbers[1] select x;
     Console.WriteLine("\nResult:\n");
     foreach (var i in findAgeBetweenNumbers) Console.WriteLine($"{i.Name} {i.Age}");
     break;
