@@ -19,7 +19,7 @@ while (true)
     Console.Write("Entire client name: ");
     string clientsName = Console.ReadLine();
 
-    var selectClients = from x in person where x.Name == clientsName && x.Age > 18 select x;
+    var selectClients = from x in person where x.Name == clientsName select x;
 
     if (selectClients.Count() == 0)
     {
@@ -27,8 +27,18 @@ while (true)
         continue;
     }
 
+    int count = 0;
+    foreach (var i in selectClients)
+    {
+        if (i.Age >= 18)
+        {
+            count++;
+        }
+    }
+
     Console.WriteLine("\nResult:\n");
     foreach (var i in selectClients) Console.WriteLine($"Name: {i.Name}, Age: {i.Age}, Address: {i.Address}");
+    Console.WriteLine($"\nCounted costomers where age more than 18: {count}");
     break;
 }
 
