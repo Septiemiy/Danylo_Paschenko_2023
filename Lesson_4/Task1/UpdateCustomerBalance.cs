@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    public class UpdateCustomerBalance : SaveToDataBase
+    public class UpdateCustomerBalance : FillTheCustomers
     {
-        public Customer Customer { get; }
         public Customer GetById(int id)
         {
-            return Customer.CustomersList.FirstOrDefault(x => x.Id == id);
+            return CustomersList.FirstOrDefault(x => x.Id == id);
+        }
+        public void SaveToDatabase()
+        {
+            Console.WriteLine("Saved!");
         }
         public void UpdateBalance(int id, decimal newBalance)
         {
