@@ -12,12 +12,8 @@ namespace Open_Closed
     {
         public override void CountYourMagic(int magic)
         {
-            if (magic == 150)
-            {
-                Console.WriteLine("Wow, your magic is fire magic!");
-                //base.CountYourMagic(magic);
-                return;
-            }
+            Console.WriteLine("Wow, your magic is fire magic!");
+            return;
         }
     }
 }
