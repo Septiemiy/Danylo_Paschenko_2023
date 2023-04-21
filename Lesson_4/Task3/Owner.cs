@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiskovSubstitution;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace Task3
 {
-    public class Owner : Administrator
+    public class Owner : Administrator, IOwner
     {
-        public bool RoleChecking()
+        public void DeleteFile(string filename)
         {
-            var role = CheckUser(new Guid());
+            if (RoleChecking() != true) return;
 
-            if (role == Guid.Empty) return false;
-
-            return true;
+            Console.WriteLine("pass");
         }
     }
 }

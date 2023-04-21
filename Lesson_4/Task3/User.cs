@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Task3
 {
-    public class User : UsersRole, IUser, ICheckFile
+    public class User : UsersRole, IUser
     {
         public bool RoleChecking()
         {
