@@ -30,66 +30,75 @@ namespace Task1
                 UserInterface.EntireOperations();
                 var userChoice = UserInterface.GetUserChoice();
 
-                if (userChoice == "sqrt")
+                switch (userChoice)
                 {
-                    UserInterface.EntireNumberForSquareRoot();
-                    var numberOne = UserInterface.GetNumber();
-                    if (numberOne == default) continue;
+                    case "q":
+                        break;
 
-                    if (numberOne < 0)
-                    {
-                        OutputResultOrError.NegativeNumber();
+                    case "sqrt":
+                        UserInterface.EntireNumberForSquareRoot();
+                        var numberOneSR = UserInterface.GetNumber();
+                        if (numberOneSR == default) continue;
+
+                        if (numberOneSR < 0)
+                        {
+                            OutputResultOrError.NegativeNumber();
+                            continue;
+                        }
+
+                        UserInterface.EntireSquareRootExponent();
+                        var numberTwoSR = UserInterface.GetNumber();
+                        if (numberTwoSR == default) continue;
+
+                        OutputResultOrError.OuputResult(DoOperation(numberOneSR, numberTwoSR, CalculatorOperations.SquareRoot));
                         continue;
-                    }
 
-                    UserInterface.EntireSquareRootExponent();
-                    var numberTwo = UserInterface.GetNumber();
-                    if (numberTwo == default) continue;
+                    case "^":
+                        UserInterface.EntireNumberForExponentiation();
+                        var numberOneExp = UserInterface.GetNumber();
+                        if (numberOneExp == default) continue;
 
-                    OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.SquareRoot));
-                    continue;
+                        UserInterface.EntireExponentiationPower();
+                        var numberTwoExp = UserInterface.GetNumber();
+                        if (numberTwoExp == default) continue;
+
+                        OutputResultOrError.OuputResult(DoOperation(numberOneExp, numberTwoExp, CalculatorOperations.Exponentiation));
+                        continue;
+
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/":
+                        UserInterface.EntireNumberOne();
+                        var numberOne = UserInterface.GetNumber();
+                        if (numberOne == default) continue;
+
+                        UserInterface.EntireNumberTwo();
+                        var numberTwo = UserInterface.GetNumber();
+                        if (numberTwo == default) continue;
+
+                        switch (userChoice)
+                        {
+                            case "+":
+                                OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Addition));
+                                continue;
+                            case "-":
+                                OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Subtraction));
+                                continue;
+                            case "*":
+                                OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Multiplication));
+                                continue;
+                            case "/":
+                                OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Division));
+                                continue;
+                        }
+                        continue;
+
+                    default:
+                        OutputResultOrError.InvalidOperators();
+                        continue;
                 }
-                else if (userChoice == "^")
-                {
-                    UserInterface.EntireNumberForExponentiation();
-                    var numberOne = UserInterface.GetNumber();
-                    if (numberOne == default) continue;
-
-                    UserInterface.EntireExponentiationPower();
-                    var numberTwo = UserInterface.GetNumber();
-                    if (numberTwo == default) continue;
-
-                    OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Exponentiation));
-                    continue;
-                }
-                else if (userChoice == "+" || userChoice == "-" || userChoice == "*" || userChoice == "/")
-                {
-                    UserInterface.EntireNumberOne();
-                    var numberOne = UserInterface.GetNumber();
-                    if (numberOne == default) continue;
-
-                    UserInterface.EntireNumberTwo();
-                    var numberTwo = UserInterface.GetNumber();
-                    if (numberTwo == default) continue;
-
-                    switch (userChoice)
-                    {
-                        case "+":
-                            OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Addition));
-                            continue;
-                        case "-":
-                            OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Subtraction));
-                            continue;
-                        case "*":
-                            OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Multiplication));
-                            continue;
-                        case "/":
-                            OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Division));
-                            continue;
-                    }
-                }
-                else if (userChoice == "q") break;
-                else OutputResultOrError.InvalidOperators();
+                break;
             }
         }
     }
