@@ -76,5 +76,53 @@ namespace Task1
             Console.WriteLine(message);
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public static double GetNumberOne()
+        {
+            EntireNumberOne();
+            var number = GetNumber();
+            if (number == default) return default;
+            return number;
+        }
+
+        public static double GetNumberTwo()
+        {
+            EntireNumberTwo();
+            var number = GetNumber();
+            if (number == default) return default;
+            return number;
+        }
+
+        public static double GetSquareRootNumber() 
+        {
+            EntireNumberForSquareRoot();
+            var number = GetNumber();
+            if (number == default) return default;
+            return number;
+        }
+
+        public static double GetSquareRootExponent()
+        {
+            EntireSquareRootExponent();
+            var number = GetNumber();
+            if (number == default) return default;
+            return number;
+        }
+
+        public static double GetExponentiationNumber()
+        {
+            EntireNumberForExponentiation();
+            var number =GetNumber();
+            if (number == default) return default;
+            return number;
+        }
+
+        public static double GetExponentiationPowerNumber()
+        {
+            EntireExponentiationPower();
+            var number = GetNumber();
+            if (number == default) return default;
+            return number;
+        }
     }
 }
