@@ -29,83 +29,51 @@ namespace Task1
 
                 UserInterface.EntireOperations();
                 var userChoice = UserInterface.GetUserChoice();
+                if (userChoice == "q") break;
 
-                switch (userChoice)
-                {
-                    case "q":
-                        break;
+                var numberOne = UserInterface.GetNumberOne();
+                var numberTwo = UserInterface.GetNumberTwo();
+
+                if (numberOne == default || numberTwo == default) continue; 
+
+                    switch (userChoice)
+                    {
 
                     case "sqrt":
-                        var numberOneSR = UserInterface.GetSquareRootNumber();
-                        if (numberOneSR < 0)
+                        
+                        if (numberOne < 0)
                         {
                             OutputResultOrError.NegativeNumber();
                             continue;
                         }
-
-                        var numberTwoSR = UserInterface.GetSquareRootNumber();
-
-                        if (numberOneSR != default || numberTwoSR != default)
-                        {
-                            OutputResultOrError.OuputResult(DoOperation(numberOneSR, numberTwoSR, CalculatorOperations.SquareRoot));
-                            continue;
-                        }
-                        else continue;
+                        
+                        OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.SquareRoot));
+                        continue;
 
                     case "^":
-                        var numberOneExp = UserInterface.GetExponentiationNumber();
-                        var numberTwoExp = UserInterface.GetExponentiationPowerNumber();
 
-                        if (numberOneExp != default || numberTwoExp != default)
-                        {
-                            OutputResultOrError.OuputResult(DoOperation(numberOneExp, numberTwoExp, CalculatorOperations.Exponentiation));
-                            continue;
-                        }
-                        else continue;
+                        OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Exponentiation));
+                        continue;
 
                     case "+":
-                        var numberOneAdd = UserInterface.GetNumberOne();
-                        var numberTwoAdd = UserInterface.GetNumberTwo();
 
-                        if (numberOneAdd != default || numberTwoAdd != default)
-                        {
-                            OutputResultOrError.OuputResult(DoOperation(numberOneAdd, numberTwoAdd, CalculatorOperations.Addition));
-                            continue;
-                        }
-                        else continue;
+                        OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Addition));
+                        continue;
 
                     case "-":
-                        var numberOneSub = UserInterface.GetNumberOne();
-                        var numberTwoSub = UserInterface.GetNumberTwo();
 
-                        if (numberOneSub != default || numberTwoSub != default)
-                        {
-                            OutputResultOrError.OuputResult(DoOperation(numberOneSub, numberTwoSub, CalculatorOperations.Subtraction));
-                            continue;
-                        }
-                        else continue;
+                        OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Subtraction));
+                        continue;
 
                     case "*":
-                        var numberOneMult = UserInterface.GetNumberOne();
-                        var numberTwoMult = UserInterface.GetNumberTwo();
 
-                        if (numberOneMult != default || numberTwoMult != default)
-                        {
-                            OutputResultOrError.OuputResult(DoOperation(numberOneMult, numberTwoMult, CalculatorOperations.Multiplication));
-                            continue;
-                        }
-                        else continue;
+                        OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Multiplication));
+                        continue;
 
                     case "/":
-                        var numberOneDiv = UserInterface.GetNumberOne();
-                        var numberTwoDiv = UserInterface.GetNumberTwo();
 
-                        if (numberOneDiv != default || numberTwoDiv != default)
-                        {
-                            OutputResultOrError.OuputResult(DoOperation(numberOneDiv, numberTwoDiv, CalculatorOperations.Division));
-                            continue;
-                        }
-                        else continue;
+                        OutputResultOrError.OuputResult(DoOperation(numberOne, numberTwo, CalculatorOperations.Division));
+                        continue;
 
                     default:
                         OutputResultOrError.InvalidOperators();

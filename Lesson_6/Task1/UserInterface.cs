@@ -49,14 +49,6 @@ namespace Task1
 
         public static void EntireNumberTwo() => Console.Write("\nEntire number two: ");
 
-        public static void EntireNumberForExponentiation() => Console.Write("\nEntire number for exponentiation: ");
-
-        public static void EntireExponentiationPower() => Console.Write("\nEntire exponentiation power: ");
-
-        public static void EntireNumberForSquareRoot() => Console.Write("\nEntire number for square root: ");
-
-        public static void EntireSquareRootExponent() => Console.Write("\nEntire square root exponent: ");
-
         public static void AddFunctionsToEvent()
         {
             OutputResultOrError.NotifyResult += displayGreenMessage;
@@ -88,38 +80,6 @@ namespace Task1
         public static double GetNumberTwo()
         {
             EntireNumberTwo();
-            var number = GetNumber();
-            if (number == default) return default;
-            return number;
-        }
-
-        public static double GetSquareRootNumber() 
-        {
-            EntireNumberForSquareRoot();
-            var number = GetNumber();
-            if (number == default) return default;
-            return number;
-        }
-
-        public static double GetSquareRootExponent()
-        {
-            EntireSquareRootExponent();
-            var number = GetNumber();
-            if (number == default) return default;
-            return number;
-        }
-
-        public static double GetExponentiationNumber()
-        {
-            EntireNumberForExponentiation();
-            var number =GetNumber();
-            if (number == default) return default;
-            return number;
-        }
-
-        public static double GetExponentiationPowerNumber()
-        {
-            EntireExponentiationPower();
             var number = GetNumber();
             if (number == default) return default;
             return number;
